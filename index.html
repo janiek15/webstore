@@ -12,51 +12,48 @@
   </head>
   <body>
     <header>
-      <!-- Site logo, replace with your own -->
-      <a href="index.html"><img src="img/logo.svg" alt="HTML Logo (replace this)"></a>
-
-      <!-- Navigation menu and toggle button (non-functional) -->
-      <nav aria-label="Primary">
-        <button type="button">
-          <span class="material-icons">menu</span>
-        </button>
-        <ul>
-          <li><a href="#">Category</a>
+      <div class="logo">
+        <a href="index.html"><img class="logo" src="img/logo.svg" alt="HTML Logo (replace this)"></a>
+      </div>
+      <nav aria-label="Primary" class='nav-top'>
+          <button type="button">
+            <span class="material-icons">menu</span>
+          </button>
+        <ul class='nav-ul'>
+          <ul>
+           <li><a href="#">Home</a></li>
+           <li><a href="#">Wine</a>
             <ul>
-              <li><a href="#">Subcategory</a></li>
-              <li><a href="#">Subcategory</a></li>
-              <li><a href="#">Subcategory</a></li>
+              <li><a href="#">Red Wine</a></li>
+              <li><a href="#">White Wine</a></li>
+              <li><a href="#">Rose Wine</a></li>
             </ul>
-          </li>
-          <li><a href="#">Category</a></li>
-          <li><a href="#">Category</a></li>
-          <li><a href="#">Category</a></li>
+          <li><a href="#">Contact Us</a></li>
         </ul>
-      </nav>
-
-      <!-- Search for a product (non-functional) -->
-      <form>
+      
+      <div id="nav-top-options"> 
+        <form id='search'>
         <label>Search
-          <input type="search" name="find" id="find">
+          <input type="search" name="find" id="find" onchange="{onChangeSearch(this)}">
         </label>
-        <button type="button"><span class="material-icons">search</span></button>
+        <button type="button" id='find-button'><span class="material-icons">search</span></button>
       </form>
-
-      <!-- Additional nav links -->
-
-      <ul>
-        <li><a href="#"><span class="material-icons">favorite_border</span></a></li>
-        <li><a href="#"><span class="material-icons">shopping_cart</span></a></li>
-      </ul>
-    </header>
+        <a href="#" class="top-icons"><span class="material-icons" >favorite_border</span><span id='favorite-count'></span></a>
+        <a href="#" class="top-icons"><span class="material-icons" >shopping_cart</span><span id='cart-count'></span></a>
+      </div>
+  </nav>
+      </header>
 
     <main>
       <header>
-        <h1>Sale on [Category Name]</h1>
+        <div id='test'>
+        <h1>Sale on Red Wine</h1>
+        </div>
 
         <!-- Filtering product form -->
         <form>
-          <h2>Filters</h2>
+          <h2 class="h2">Filters</h2>
+          <div class=filter>
           <fieldset>
             <label for="sort">Show</label>
             <select name="sort" id="sort">
@@ -65,27 +62,37 @@
               <option value="newest">Newest releases</option>
             </select>
           </fieldset>
-          <fieldset>
-            <legend>Colour</legend>
+        </div>
+          <div class="chart">
+          <fieldset class=column>
+            <legend>Type of Wine</legend>
             <ul>
-              <li><input type="checkbox" name="colour" value="black" id="black"> <label for="black">Black</label></li>
-              <li><input type="checkbox" name="colour" value="white" id="white"> <label for="white">White</label></li>
-              <li><input type="checkbox" name="colour" value="grey" id="grey"> <label for="grey">Grey</label></li>
-              <li><input type="checkbox" name="colour" value="red" id="red"> <label for="red">Red</label></li>
-              <li><input type="checkbox" name="colour" value="blue" id="blue"> <label for="blue">Blue</label></li>
+              <li><input type="checkbox" name="type" value="red" id="red"> <label for="red">Red</label></li>
+              <li><input type="checkbox" name="type" value="white" id="white"> <label for="white">White</label></li>
+              <li><input type="checkbox" name="type" value="rose" id="rose"> <label for="rose">Rose</label></li>
+              <li><input type="checkbox" name="type" value="champagne" id="champagne"> <label for="champagne">Champagne</label></li>
+              <li><input type="checkbox" name="type" value="sparkling" id="sparkling"> <label for="sparkling">Sparkling</label></li>
             </ul>
           </fieldset>
-          <fieldset>
-            <legend>Sizes</legend>
+          <fieldset class="column">
+            <legend>Bodied</legend>
             <ol>
-              <li><input type="checkbox" name="size" value="xs" id="xs"> <label for="xs">XS</label></li>
-              <li><input type="checkbox" name="size" value="sm" id="sm"> <label for="sm">S</label></li>
-              <li><input type="checkbox" name="size" value="md" id="md"> <label for="md">M</label></li>
-              <li><input type="checkbox" name="size" value="lg" id="lg"> <label for="lg">L</label></li>
-              <li><input type="checkbox" name="size" value="xl" id="xl"> <label for="xl">XL</label></li>
+              <li><input type="checkbox" name="body" value="vl" id="vl"> <label for="vl">Very Light</label></li>
+              <li><input type="checkbox" name="body" value="lb" id="lb"> <label for="lb">Light Bodied</label></li>
+              <li><input type="checkbox" name="body" value="mb" id="mb"> <label for="mb">Medium Bodied</label></li>
+              <li><input type="checkbox" name="body" value="fb" id="fb"> <label for="fb">Full Bodied</label></li>
+              <li><input type="checkbox" name="body" value="hb" id="hb"> <label for="hb">Heavy Bodied</label></li>
             </ol>
           </fieldset>
-          <fieldset>
+          <fieldset class="column">
+            <legend>Year</legend>
+            <ol>
+              <li><input type="checkbox" name="year" value="2001" id="2001"> <label for="2001">2001</label></li>
+              <li><input type="checkbox" name="year" value="2007" id="2007"> <label for="2007">2007</label></li>
+              <li><input type="checkbox" name="year" value="2019" id="2019"> <label for="2019">2019</label></li>
+            </ol>
+          </fieldset>
+          <fieldset class="column">
             <legend>Ratings (above)</legend>
             <ol>
               <li>
@@ -114,6 +121,7 @@
               </li>
             </ol>
           </fieldset>
+          </div>
         </form>
       </header>
 
@@ -124,26 +132,31 @@
           <!-- Product 1 -->
           <article class="product">
             <header>
-              <img src="img/product.jpg" alt="Product Image">
+              <img class='product-img' src="img/pro1.jpg" alt="Product Image">
             </header>
-            <h3>Product Name</h3>
-            <p>Here is a shot of this product that might entice a user to click and add it to their cart.</p>
+            <h3>Leon Millot</h3>
+            <p>This single varietal Leon Millot has layers of raspberry, mellow strawberry and dark chocolate enhanced by ageing with French Oak. </p>
             <form>
               <fieldset>
-                <legend>Colours</legend>
+                <legend>Type of Wine</legend>
                 <ul>
-                  <li><label><input type="radio" name="colour" value="r"> <span>Red</span></label></li>
-                  <li><label><input type="radio" name="colour" value="w"> <span>White</span></label></li>
-                  <li><label><input type="radio" name="colour" value="b"> <span>Blue</span></label></li>
+                  <li><label><input type="radio" name="type" value="r"> <span>Red</span></label></li>
                 </ul>
               </fieldset>
 
               <fieldset>
-                <legend>Sizes</legend>
+                <legend>Body</legend>
                 <ol>
-                  <li><label><input type="radio" name="size" value="m"> <span>M</span></label></li>
-                  <li><label><input type="radio" name="size" value="l"> <span>L</span></label></li>
-                  <li><label><input type="radio" name="size" value="xl"> <span>XL</span></label></li>
+                  <li><label><input type="radio" name="body" value="m"> <span>Medium Bodied</span></label></li>
+                </ol>
+              </fieldset>
+
+              <fieldset>
+                <legend>year</legend>
+                <ol>
+                  <li><label><input type="radio" name="year" value="2001"> <span>2001</span></label></li>
+                  <li><label><input type="radio" name="year" value="2007"> <span>2007</span></label></li>
+                  <li><label><input type="radio" name="year" value="2019"> <span>2019</span></label></li>
                 </ol>
               </fieldset>
 
@@ -152,188 +165,243 @@
                   <dt>Rating</dt>
                   <dd>4.4 <span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star_half</span></dd>
                 </dl>
-                <data value="39"><del>$50.00</del> <ins>$39.00</ins></data>
-                <button type="button"><span class="material-icons">add_shopping_cart</span> Add to Cart</button>
-                <button type="button"><span class="material-icons">favorite</span></button>
+                <data value="20"><del>$49.00</del> <ins>$20.00</ins></data>
+                <button type="button" class='button-add-cart'><span class="material-icons">add_shopping_cart</span> Add to Cart</button>
+                <button type="button" class='button-add-favorite'><span class="material-icons">favorite</span></button>
                 <a href="#">see more</a>
               </footer>
             </form>
           </article>
-
-          <!-- Product 2 -->
           <article class="product">
-            <header>
-              <img src="img/product.jpg" alt="Product Image">
-            </header>
-            <h3>Product Name</h3>
-            <p>Here is a shot of this product that might entice a user to click and add it to their cart.</p>
-            <form>
-              <fieldset>
-                <legend>Colours</legend>
-                <ul>
-                  <li><label><input type="radio" name="colour" value="r"> <span>Red</span></label></li>
-                  <li><label><input type="radio" name="colour" value="w"> <span>White</span></label></li>
-                  <li><label><input type="radio" name="colour" value="b"> <span>Blue</span></label></li>
-                </ul>
-              </fieldset>
-
-              <fieldset>
-                <legend>Sizes</legend>
-                <ol>
-                  <li><label><input type="radio" name="size" value="m"> <span>M</span></label></li>
-                  <li><label><input type="radio" name="size" value="l"> <span>L</span></label></li>
-                  <li><label><input type="radio" name="size" value="xl"> <span>XL</span></label></li>
-                </ol>
-              </fieldset>
-
-              <footer>
-                <dl>
-                  <dt>Rating</dt>
-                  <dd>4.4 <span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star_half</span></dd>
-                </dl>
-                <data value="39"><del>$50.00</del> <ins>$39.00</ins></data>
-                <button type="button"><span class="material-icons">add_shopping_cart</span> Add to Cart</button>
-                <button type="button"><span class="material-icons">favorite</span></button>
-                <a href="#">see more</a>
-              </footer>
-            </form>
-          </article>
-
-          <!-- Product 3 -->
-          <article class="product">
-            <header>
-              <img src="img/product.jpg" alt="Product Image">
-            </header>
-            <h3>Product Name</h3>
-            <p>Here is a shot of this product that might entice a user to click and add it to their cart.</p>
-            <form>
-              <fieldset>
-                <legend>Colours</legend>
-                <ul>
-                  <li><label><input type="radio" name="colour" value="r"> <span>Red</span></label></li>
-                  <li><label><input type="radio" name="colour" value="w"> <span>White</span></label></li>
-                  <li><label><input type="radio" name="colour" value="b"> <span>Blue</span></label></li>
-                </ul>
-              </fieldset>
-
-              <fieldset>
-                <legend>Sizes</legend>
-                <ol>
-                  <li><label><input type="radio" name="size" value="m"> <span>M</span></label></li>
-                  <li><label><input type="radio" name="size" value="l"> <span>L</span></label></li>
-                  <li><label><input type="radio" name="size" value="xl"> <span>XL</span></label></li>
-                </ol>
-              </fieldset>
-
-              <footer>
-                <dl>
-                  <dt>Rating</dt>
-                  <dd>4.4 <span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star_half</span></dd>
-                </dl>
-                <data value="39"><del>$50.00</del> <ins>$39.00</ins></data>
-                <button type="button"><span class="material-icons">add_shopping_cart</span> Add to Cart</button>
-                <button type="button"><span class="material-icons">favorite</span></button>
-                <a href="#">see more</a>
-              </footer>
-            </form>
-          </article>
+              <header>
+                <img class='product-img' src="img/pro2.jpg" alt="Product Image">
+              </header>
+              <h3>Leon Millot</h3>
+              <p>This single varietal Leon Millot has layers of raspberry, mellow strawberry and dark chocolate enhanced by ageing with French Oak. </p>
+              <form>
+                <fieldset>
+                  <legend>Type of Wine</legend>
+                  <ul>
+                    <li><label><input type="radio" name="type" value="r"> <span>Red</span></label></li>
+                  </ul>
+                </fieldset>
+  
+                <fieldset>
+                  <legend>Body</legend>
+                  <ol>
+                    <li><label><input type="radio" name="body" value="m"> <span>Medium Bodied</span></label></li>
+                  </ol>
+                </fieldset>
+  
+                <fieldset>
+                  <legend>year</legend>
+                  <ol>
+                    <li><label><input type="radio" name="year" value="2001"> <span>2001</span></label></li>
+                    <li><label><input type="radio" name="year" value="2007"> <span>2007</span></label></li>
+                    <li><label><input type="radio" name="year" value="2019"> <span>2019</span></label></li>
+                  </ol>
+                </fieldset>
+  
+                <footer>
+                  <dl>
+                    <dt>Rating</dt>
+                    <dd>4.4 <span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star_half</span></dd>
+                  </dl>
+                  <data value="20"><del>$49.00</del> <ins>$20.00</ins></data>
+                  <button type="button" class='button-add-cart'><span class="material-icons">add_shopping_cart</span> Add to Cart</button>
+                  <button type="button" class='button-add-favorite'><span class="material-icons">favorite</span></button>
+                  <a href="#">see more</a>
+                </footer>
+              </form>
+            </article>
+            <article class="product">
+                <header>
+                  <img class='product-img' src="img/pro3.jpg" alt="Product Image">
+                </header>
+                <h3>Leon Millot</h3>
+                <p>This single varietal Leon Millot has layers of raspberry, mellow strawberry and dark chocolate enhanced by ageing with French Oak. </p>
+                <form>
+                  <fieldset>
+                    <legend>Type of Wine</legend>
+                    <ul>
+                      <li><label><input type="radio" name="type" value="r"> <span>Red</span></label></li>
+                    </ul>
+                  </fieldset>
     
-          <!-- Product 4 -->
-          <article class="product">
-            <header>
-              <img src="img/product.jpg" alt="Product Image">
-            </header>
-            <h3>Product Name</h3>
-            <p>Here is a shot of this product that might entice a user to click and add it to their cart.</p>
-            <form>
-              <fieldset>
-                <legend>Colours</legend>
-                <ul>
-                  <li><label><input type="radio" name="colour" value="r"> <span>Red</span></label></li>
-                  <li><label><input type="radio" name="colour" value="w"> <span>White</span></label></li>
-                  <li><label><input type="radio" name="colour" value="b"> <span>Blue</span></label></li>
-                </ul>
-              </fieldset>
-
-              <fieldset>
-                <legend>Sizes</legend>
-                <ol>
-                  <li><label><input type="radio" name="size" value="m"> <span>M</span></label></li>
-                  <li><label><input type="radio" name="size" value="l"> <span>L</span></label></li>
-                  <li><label><input type="radio" name="size" value="xl"> <span>XL</span></label></li>
-                </ol>
-              </fieldset>
-
-              <footer>
-                <dl>
-                  <dt>Rating</dt>
-                  <dd>4.4 <span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star_half</span></dd>
-                </dl>
-                <data value="39"><del>$50.00</del> <ins>$39.00</ins></data>
-                <button type="button"><span class="material-icons">add_shopping_cart</span> Add to Cart</button>
-                <button type="button"><span class="material-icons">favorite</span></button>
-                <a href="#">see more</a>
-              </footer>
-            </form>
-          </article>
-
-          <!-- Product 5 -->
-          <article class="product">
-            <header>
-              <img src="img/product.jpg" alt="Product Image">
-            </header>
-            <h3>Product Name</h3>
-            <p>Here is a shot of this product that might entice a user to click and add it to their cart.</p>
-            <form>
-              <fieldset>
-                <legend>Colours</legend>
-                <ul>
-                  <li><label><input type="radio" name="colour" value="r"> <span>Red</span></label></li>
-                  <li><label><input type="radio" name="colour" value="w"> <span>White</span></label></li>
-                  <li><label><input type="radio" name="colour" value="b"> <span>Blue</span></label></li>
-                </ul>
-              </fieldset>
-
-              <fieldset>
-                <legend>Sizes</legend>
-                <ol>
-                  <li><label><input type="radio" name="size" value="m"> <span>M</span></label></li>
-                  <li><label><input type="radio" name="size" value="l"> <span>L</span></label></li>
-                  <li><label><input type="radio" name="size" value="xl"> <span>XL</span></label></li>
-                </ol>
-              </fieldset>
-
-              <footer>
-                <dl>
-                  <dt>Rating</dt>
-                  <dd>4.4 <span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star_half</span></dd>
-                </dl>
-                <data value="39"><del>$50.00</del> <ins>$39.00</ins></data>
-                <button type="button"><span class="material-icons">add_shopping_cart</span> Add to Cart</button>
-                <button type="button"><span class="material-icons">favorite</span></button>
-                <a href="#">see more</a>
-              </footer>
-            </form>
-          </article>
+                  <fieldset>
+                    <legend>Body</legend>
+                    <ol>
+                      <li><label><input type="radio" name="body" value="m"> <span>Medium Bodied</span></label></li>
+                    </ol>
+                  </fieldset>
+    
+                  <fieldset>
+                    <legend>year</legend>
+                    <ol>
+                      <li><label><input type="radio" name="year" value="2001"> <span>2001</span></label></li>
+                      <li><label><input type="radio" name="year" value="2007"> <span>2007</span></label></li>
+                      <li><label><input type="radio" name="year" value="2019"> <span>2019</span></label></li>
+                    </ol>
+                  </fieldset>
+    
+                  <footer>
+                    <dl>
+                      <dt>Rating</dt>
+                      <dd>4.4 <span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star_half</span></dd>
+                    </dl>
+                    <data value="20"><del>$49.00</del> <ins>$20.00</ins></data>
+                    <button type="button" class='button-add-cart'><span class="material-icons">add_shopping_cart</span> Add to Cart</button>
+                    <button type="button" class='button-add-favorite'><span class="material-icons">favorite</span></button>
+                    <a href="#">see more</a>
+                  </footer>
+                </form>
+              </article>
+              <article class="product">
+                  <header>
+                    <img class='product-img' src="img/pro4.jpg" alt="Product Image">
+                  </header>
+                  <h3>Leon Millot</h3>
+                  <p>This single varietal Leon Millot has layers of raspberry, mellow strawberry and dark chocolate enhanced by ageing with French Oak. </p>
+                  <form>
+                    <fieldset>
+                      <legend>Type of Wine</legend>
+                      <ul>
+                        <li><label><input type="radio" name="type" value="r"> <span>Red</span></label></li>
+                      </ul>
+                    </fieldset>
+      
+                    <fieldset>
+                      <legend>Body</legend>
+                      <ol>
+                        <li><label><input type="radio" name="body" value="m"> <span>Medium Bodied</span></label></li>
+                      </ol>
+                    </fieldset>
+      
+                    <fieldset>
+                      <legend>year</legend>
+                      <ol>
+                        <li><label><input type="radio" name="year" value="2001"> <span>2001</span></label></li>
+                        <li><label><input type="radio" name="year" value="2007"> <span>2007</span></label></li>
+                        <li><label><input type="radio" name="year" value="2019"> <span>2019</span></label></li>
+                      </ol>
+                    </fieldset>
+      
+                    <footer>
+                      <dl>
+                        <dt>Rating</dt>
+                        <dd>4.4 <span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star_half</span></dd>
+                      </dl>
+                      <data value="20"><del>$49.00</del> <ins>$20.00</ins></data>
+                      <button type="button" class='button-add-cart'><span class="material-icons">add_shopping_cart</span> Add to Cart</button>
+                      <button type="button" class='button-add-favorite'><span class="material-icons">favorite</span></button>
+                      <a href="#">see more</a>
+                    </footer>
+                  </form>
+                </article>
+                <article class="product">
+                    <header>
+                      <img class='product-img' src="img/pro5.jpg" alt="Product Image">
+                    </header>
+                    <h3>Leon Millot</h3>
+                    <p>This single varietal Leon Millot has layers of raspberry, mellow strawberry and dark chocolate enhanced by ageing with French Oak. </p>
+                    <form>
+                      <fieldset>
+                        <legend>Type of Wine</legend>
+                        <ul>
+                          <li><label><input type="radio" name="type" value="r"> <span>Red</span></label></li>
+                        </ul>
+                      </fieldset>
+        
+                      <fieldset>
+                        <legend>Body</legend>
+                        <ol>
+                          <li><label><input type="radio" name="body" value="m"> <span>Medium Bodied</span></label></li>
+                        </ol>
+                      </fieldset>
+        
+                      <fieldset>
+                        <legend>year</legend>
+                        <ol>
+                          <li><label><input type="radio" name="year" value="2001"> <span>2001</span></label></li>
+                          <li><label><input type="radio" name="year" value="2007"> <span>2007</span></label></li>
+                          <li><label><input type="radio" name="year" value="2019"> <span>2019</span></label></li>
+                        </ol>
+                      </fieldset>
+        
+                      <footer>
+                        <dl>
+                          <dt>Rating</dt>
+                          <dd>4.4 <span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star_half</span></dd>
+                        </dl>
+                        <data value="20"><del>$49.00</del> <ins>$20.00</ins></data>
+                        <button type="button" class='button-add-cart'><span class="material-icons">add_shopping_cart</span> Add to Cart</button>
+                        <button type="button" class='button-add-favorite'><span class="material-icons">favorite</span></button>
+                        <a href="#">see more</a>
+                      </footer>
+                    </form>
+                  </article> 
+                  <article class="product">
+                      <header>
+                        <img class='product-img' src="img/pro4.jpg" alt="Product Image">
+                      </header>
+                      <h3>Leon Millot</h3>
+                      <p>This single varietal Leon Millot has layers of raspberry, mellow strawberry and dark chocolate enhanced by ageing with French Oak. </p>
+                      <form>
+                        <fieldset>
+                          <legend>Type of Wine</legend>
+                          <ul>
+                            <li><label><input type="radio" name="type" value="r"> <span>Red</span></label></li>
+                          </ul>
+                        </fieldset>
+          
+                        <fieldset>
+                          <legend>Body</legend>
+                          <ol>
+                            <li><label><input type="radio" name="body" value="m"> <span>Medium Bodied</span></label></li>
+                          </ol>
+                        </fieldset>
+          
+                        <fieldset>
+                          <legend>year</legend>
+                          <ol>
+                            <li><label><input type="radio" name="year" value="2001"> <span>2001</span></label></li>
+                            <li><label><input type="radio" name="year" value="2007"> <span>2007</span></label></li>
+                            <li><label><input type="radio" name="year" value="2019"> <span>2019</span></label></li>
+                          </ol>
+                        </fieldset>
+          
+                        <footer>
+                          <dl>
+                            <dt>Rating</dt>
+                            <dd>4.4 <span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star</span><span class="material-icons">star_half</span></dd>
+                          </dl>
+                          <data value="20"><del>$49.00</del> <ins>$20.00</ins></data>
+                          <button type="button" class='button-add-cart'><span class="material-icons">add_shopping_cart</span> Add to Cart</button>
+                          <button type="button" class='button-add-favorite'><span class="material-icons">favorite</span></button>
+                          <a href="#">see more</a>
+                        </footer>
+                      </form>
+                    </article>    
+                                                 
         </div>
       </section>
 
-      <footer>
-        <p>1-5 of 20 products found</p>
-        <nav aria-label="Product Pages">
+      <footer id="label">
+        <div class="page_found"><p>1-5 of 20 products found</p></div>
+        <nav aria-label="Product Pages" class="page">
+          <div class="page_number">
           <a href="#" aria-label="Previous page">prev</a>
-          <ol>
-            <li><a href="#" aria-label="Current Page, Page 1" aria-current="true">1</a></li>
-            <li><a href="#" aria-label="Page 2">2</a></li>
-            <li><a href="#" aria-label="Page 3">3</a></li>
-            <li><a href="#" aria-label="Page 4">4</a></li>
-          </ol>
+          <a class="current" href="#" aria-label="Current Page, Page 1" aria-current="true">1</a>
+          <a href="#" aria-label="Page 2">2</a>
+          <a href="#" aria-label="Page 3">3</a>
+          <a href="#" aria-label="Page 4">4</a>
           <a href="#" aria-label="Next page">next</a>
+          </div>
         </nav>
       </footer>
     </main>
 
-    <footer>
+    <footer id="footer">
       <p>&copy; Copyright, 1991.</p>
       <nav aria-label="Legal">
         <ul>
